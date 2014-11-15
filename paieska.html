@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+	<title>Paieška interneto virtuvėje</title>
+	<style>
+        form {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            width: 600px;
+            margin-left: -300px;
+        }
+        form label {
+            text-align: center;
+            font-size: 24px;
+            display: block;
+        }
+        /*form input, form button {
+            float:left;
+        }*/
+	</style>
+	<script type="text/javascript">
+        (function($){
+            $(document).ready(function(){
+                $('form').submit(function(e){
+
+                    e.preventDefault();
+                    window.location = $(this).attr('action') + '#q=receptai+ingredientai+' + encodeURI($('#key').val());
+
+                    return false;
+                });
+
+                $('form button').click(function(){
+                    $('form').submit();
+                });
+            });
+		})(jQuery);
+	</script>
+</head>
+<body>
+	<form action="https://www.google.lt/" role="form">
+        <label>Ingredientai, kuriuos turi:</label>
+        <div class="input-group">
+            <input class="form-control input-lg" type="search" id="key" value="špinatai sūris" />
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-lg btn-primary glyphicon glyphicon-search"></button>
+            </span>
+        </div>
+
+	</form>
+</body>
+</html>
